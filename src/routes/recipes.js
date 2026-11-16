@@ -1,6 +1,6 @@
 import { Router } from "express";
-const router = Router();
 import { getAll, getById, create, update, remove } from "../controller/recipesController";
+const router = Router();
 
 router.get("/", getAll);
 router.get("/:id", getById);

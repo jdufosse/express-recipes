@@ -1,4 +1,4 @@
-import { getById as findRecipeById } from "../services/recipesService.js";
+import recipesService from "../services/recipesService.js";
 
 export function getAll(req, res) {
   res.json([]); // Récupérer toutes les recettes
@@ -6,7 +6,7 @@ export function getAll(req, res) {
 
 export async function getById(req, res) {
   const { id } = req.params;
-  const recipe = await findRecipeById(id);
+  const recipe = await recipesService.getById(id);
 
   if (!recipe) {
     return res.status(404).json({ error: "Recette introuvable" });
