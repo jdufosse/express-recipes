@@ -15,14 +15,17 @@ export async function getById(req, res) {
   res.json(recipe); // Récupérer une recette par son ID
 }
 
-export function create(req, res) {
+export async function create(req, res) {
+  await recipesService.create(req.body);
   res.status(201).json(req.body);
 }
 
-export function update(req, res) {
+export async function update(req, res) {
+  await recipesService.update(req.params.id, req.body);
   res.json({ id: req.params.id, ...req.body });
 }
 
-export function remove(req, res) {
+export async function remove(req, res) {
+  await recipesService.delete(req.params.id)
   res.sendStatus(204);
 }
