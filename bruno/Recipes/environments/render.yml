@@ -1,0 +1,6 @@
+name: render
+variables:
+  - name: url_base
+    value: https://express-recipes-1.onrender.com/
+  - name: id
+    value: ""

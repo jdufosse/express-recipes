@@ -1,12 +1,13 @@
-import recipesService from "../services/recipesService.js";
+import recipeService from "../services/recipeService.js";
 
-export function getAll(req, res) {
-  res.json([]); // Récupérer toutes les recettes
+export async function getAll(req, res) {
+  const recipes = await recipeService.getAll();
+  res.json(recipes); // Récupérer toutes les recettes
 }
 
 export async function getById(req, res) {
   const { id } = req.params;
-  const recipe = await recipesService.getById(id);
+  const recipe = await recipeService.getById(id);
 
   if (!recipe) {
     return res.status(404).json({ error: "Recette introuvable" });
@@ -16,16 +17,16 @@ export async function getById(req, res) {
 }
 
 export async function create(req, res) {
-  await recipesService.create(req.body);
+  await recipeService.create(req.body);
   res.status(201).json(req.body);
 }
 
 export async function update(req, res) {
-  await recipesService.update(req.params.id, req.body);
+  await recipeService.update(req.params.id, req.body);
   res.json({ id: req.params.id, ...req.body });
 }
 
 export async function remove(req, res) {
-  await recipesService.delete(req.params.id)
+  await recipeService.delete(req.params.id)
   res.sendStatus(204);
 }

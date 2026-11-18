@@ -1,0 +1,27 @@
+info:
+  name: Add recipe
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_base}}recipe"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "id" : "crepes",
+        "name": "Crêpes",
+        "ingredients": ["250 g de farine", "3 œufs", "500 ml de lait", "1 pincée de sel", "1 cuillère à soupe de sucre"],
+        "steps": ["Verser la farine et le sel dans un saladier.", "Ajouter les œufs et mélanger.", "Verser le lait progressivement en fouettant.", "Laisser reposer la pâte 30 minutes.", "Cuire les crêpes dans une poêle chaude."]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

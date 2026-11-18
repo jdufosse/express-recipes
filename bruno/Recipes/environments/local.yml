@@ -1,0 +1,6 @@
+name: local
+variables:
+  - name: url_base
+    value: https://humble-journey-vw5rgxrp94qfxqw4-3000.app.github.dev/
+  - name: id
+    value: ""

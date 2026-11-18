@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAll, getById, create, update, remove } from "../controller/recipesController";
+import { getAll, getById, create, update, remove } from "../controller/recipeController";
 const router = Router();
 
 router.get("/", getAll);
