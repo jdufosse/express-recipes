@@ -15,6 +15,7 @@ app.use(
       "http://localhost:5173",
       "https://laughing-broccoli-6wp5rj5vx56cqg7-5173.app.github.dev",
       "https://express-recipes-1.onrender.com",
+      "https://jdufosse.github.io"
     ],
   })
 );
