@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 const app = express()
 const port = process.env.PORT || 3000;
 
-console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
+console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()));
 console.log("PORT:", process.env.PORT);
 
 app.use(
