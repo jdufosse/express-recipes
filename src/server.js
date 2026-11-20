@@ -4,21 +4,17 @@ import express, { json } from 'express';
 import mongoose from 'mongoose';
 const app = express()
 const port = process.env.PORT || 3000;
-
-console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()));
-console.log("PORT:", process.env.PORT);
-
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ??
+const cors = {
+  origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ??
     [
       "http://localhost:5173",
-      "https://laughing-broccoli-6wp5rj5vx56cqg7-5173.app.github.dev",
-      "https://express-recipes-1.onrender.com"
+      "https://laughing-broccoli-6wp5rj5vx56cqg7-5173.app.github.dev"
     ],
-  })
-);
+};
 
+console.log({ cors, port });
+
+app.use(cors);
 app.use(json());
 app.use("/recipe", require("./routes/recipe.js").default);
 
