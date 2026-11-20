@@ -4,7 +4,7 @@ import express, { json } from 'express';
 import mongoose from 'mongoose';
 const app = express()
 const port = process.env.PORT || 3000;
-const cors = {
+const corsOptions = {
   origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ??
     [
       "http://localhost:5173",
@@ -12,9 +12,9 @@ const cors = {
     ],
 };
 
-console.log({ cors, port });
+console.log({ corsOptions, port });
 
-app.use(cors);
+app.use(cors(corsOptions));
 app.use(json());
 app.use("/recipe", require("./routes/recipe.js").default);
 
