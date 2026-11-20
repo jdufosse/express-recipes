@@ -10,12 +10,11 @@ console.log("PORT:", process.env.PORT);
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ||
+    origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ??
     [
       "http://localhost:5173",
       "https://laughing-broccoli-6wp5rj5vx56cqg7-5173.app.github.dev",
-      "https://express-recipes-1.onrender.com",
-      "https://jdufosse.github.io"
+      "https://express-recipes-1.onrender.com"
     ],
   })
 );
