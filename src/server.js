@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN ||
+    origin: process.env.CORS_ORIGIN?.split(",")?.map((s) => s.trim()) ||
     [
       "http://localhost:5173",
       "https://laughing-broccoli-6wp5rj5vx56cqg7-5173.app.github.dev",
