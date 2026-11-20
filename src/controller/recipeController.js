@@ -1,8 +1,15 @@
 import recipeService from "../services/recipeService.js";
 
 export async function getAll(req, res) {
-  const recipes = await recipeService.getAll();
-  res.json(recipes); // Récupérer toutes les recettes
+  try {
+    const recipes = await recipeService.getAll();
+    console.log("Fetched recipes:", recipes);
+    res.json(recipes); // Récupérer toutes les recettes
+  }
+  catch (err) {
+    console.error("Error fetching recipes:", err);
+    res.status(500).json({ error: "Erreur lors de la récupération des recettes" });
+  }
 }
 
 export async function getById(req, res) {
